@@ -1,0 +1,121 @@
+/*
+footer widget
+-------------
+*/
+.footerWidget {
+  padding: 60px 0;
+  margin: 0 -15px;
+  color: $white;
+  display: flex;
+  position: relative;
+
+  @media only screen and (max-width: 1023px) {
+    flex-wrap: wrap;
+    padding: 60px 0 30px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    padding: 30px 0 10px;
+  }
+
+  &:before {
+    content: '';
+    background: lighten($black, 5%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -999px;
+    right: -999px;
+  }
+
+  h4 {
+    font-size: 24px;
+    color: $primaryColor;
+    text-transform: uppercase;
+
+    @media only screen and (max-width: 767px) {
+      font-size: 20px;
+    }
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    margin: 0 0 15px;
+    padding: 0 0 0 15px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    &:before {
+      content: '';
+      background: $primaryColor;
+      height: 5px;
+      width: 5px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    a {
+      color: $white;
+
+      &:hover {
+        color: $primaryColor;
+      }
+    }
+  }
+
+  .col {
+    width: 25%;
+    padding: 0 15px;
+    position: relative;
+
+    @media only screen and (max-width: 1023px) {
+      width: 50%;
+      padding: 0 15px 30px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
+  iframe {
+    border: 0;
+  }
+
+  input[type="email"] {
+    width: 100%;
+    margin: 0 0 10px;
+  }
+}
+
+/*
+copyright
+---------
+*/
+.copyright {
+  text-align: center;
+  padding: 25px 0 35px;
+  color: $white;
+  position: relative;
+
+  &:before {
+    content: '';
+    background: $black;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -999px;
+    right: -999px;
+  }
+
+  p {
+    position: relative;
+    margin: 0;
+  }
+}
