@@ -1,0 +1,433 @@
+body {
+	@media only screen and (max-width: 767px) {
+		font-size: 14px;
+	}
+}
+
+#wrapper {
+	position: relative;
+	overflow: hidden;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 1270px;
+	padding: 0 15px;
+}
+
+/*
+buttons
+-------
+*/
+.btn-primary {
+	background: #e31c25;
+	color: #fff;
+	padding: 13px 40px;
+	border: none;
+	font: 600 16px/1.6 $base-font-sans-serif;
+	cursor: pointer;
+	transition: background 0.3s linear;
+
+	@media only screen and (max-width: 767px) {
+		font-size: 14px;
+		padding: 8px 25px;
+	}
+
+	&:hover {
+		background: $black;
+		color: $white;
+	}
+
+	&:disabled {
+		opacity: 0.4;
+
+		&:hover {
+			background: $primaryColor;
+			cursor: default;
+		}
+	}
+}
+
+/*
+form elements
+-------------
+*/
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+textarea {
+	height: 50px;
+	padding: 10px;
+	font: 16px/1.6 $base-font-sans-serif;
+	color: $lightBlack;
+	border: 1px solid lighten($black, 80%);
+
+	@media only screen and (max-width: 767px) {
+		height: 45px;
+		font-size: 14px;
+	}
+
+	&:focus {
+		border: 1px solid $primaryColor;
+		outline: none;
+	}
+}
+
+textarea {
+	min-height: 150px;
+	height: 150px;
+}
+
+input[type="submit"] {
+	background: #e31c25;
+	color: #fff;
+	padding: 13px 40px;
+	border: none;
+	font: 600 16px/1.6 $base-font-sans-serif;
+	cursor: pointer;
+	transition: background 0.3s linear;
+
+	@media only screen and (max-width: 767px) {
+		font-size: 14px;
+		padding: 8px 25px
+	}
+
+	&:hover {
+		background: $black;
+	}
+
+	&:disabled {
+		opacity: 0.4;
+
+		&:hover {
+			background: $primaryColor;
+			cursor: default;
+		}
+	}
+}
+
+/*
+modal
+-----
+*/
+@-webkit-keyframes modalZoom {
+	from {
+		transform: translate(-50%, -50%) scale(0);
+	}
+
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+@keyframes modalZoom {
+	from {
+		transform: translate(-50%, -50%) scale(0);
+	}
+
+	to {
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.modalBox {
+	display: none;
+	position: fixed;
+	z-index: 99;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background: rgba(0, 0, 0, 0.6);
+
+	.modalContent {
+		background: $white;
+		padding: 40px 40px 20px;
+		width: 30%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		animation-name: modalZoom;
+		animation-duration: 0.3s;
+
+		@media only screen and (max-width: 1199px) {
+			width: 50%;
+		}
+
+		@media only screen and (max-width: 767px) {
+			width: 80%;
+			padding: 40px 25px 20px;
+		}
+	}
+
+	.close {
+		color: $black;
+		position: absolute;
+		top: 2px;
+		right: 10px;
+		font-size: 24px;
+		cursor: pointer;
+		transition: color 0.3s linear;
+
+		&:hover,
+		&:focus {
+			color: $primaryColor;
+		}
+	}
+
+	.formHolder {
+		h2 {
+			font-size: 24px;
+
+			@media only screen and (max-width: 767px) {
+				font-size: 20px;
+			}
+		}
+
+		.row {
+			margin: 0 0 20px;
+		}
+
+		label {
+			display: block;
+			margin: 0 0 10px;
+		}
+
+		input[type="text"],
+		input[type="password"] {
+			width: 100%;
+			margin: 0 0 10px;
+		}
+
+		.error {
+			color: $primaryColor;
+			font-size: 14px;
+		}
+	}
+}
+
+/*
+tab
+---
+*/
+.tab {
+	.tab-list {
+		list-style: none;
+		overflow: hidden;
+
+		li {
+			float: left;
+		}
+
+		a {
+			display: block;
+			color: $lightBlack;
+			text-decoration: none;
+			padding: 10px 25px;
+			margin: 0 2px 0 0;
+			font-weight: 600;
+			text-transform: uppercase;
+			transition: color 0.3s linear;
+
+			@media only screen and (max-width: 767px) {
+				padding: 5px 10px;
+			}
+
+			&.active,
+			&:hover {
+				border-bottom: 2px solid $primaryColor;
+				color: $primaryColor;
+			}
+		}
+	}
+
+	.tab-wrap {
+		background: $white;
+		border-top: 1px solid lighten($black, 80%);
+		border-bottom: 1px solid lighten($black, 80%);
+		color: $lightBlack;
+		padding: 20px 0 0;
+	}
+
+	.tab-content {
+		display: none;
+
+		&.active {
+			display: block;
+		}
+
+		ul {
+			list-style-position: inside;
+			margin: 0 0 25px;
+		}
+
+		p {
+			margin: 0 0 20px;
+		}
+	}
+}
+
+/*
+go to top
+---------
+*/
+#gotop {
+	position: fixed;
+	right: 40px;
+	bottom: 30px;
+	font-size: 40px;
+	display: none;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+/*
+horizontal scroll bar
+---------------------
+*/
+.scrollBarHolder {
+	height: 8px;
+	background: darken($white, 25%);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	#scrollBar {
+		height: 8px;
+		background: $primaryColor;
+	}
+}
+
+/*
+accordion
+---------
+*/
+.accordion {
+	margin: 0 0 50px;
+
+	.holder {
+		margin: 0 0 10px;
+	}
+	
+	.title {
+		&.accordionActive {
+			a {
+				background: $primaryColor;
+
+				&:after {
+					transform: translateY(-50%) rotate(-45deg);
+				}
+			}
+		}
+		a {
+			text-decoration: none;
+			background: $lightBlack;
+			color: $white;
+			padding: 20px 55px 20px 25px;
+			display: block;
+			position: relative;
+			transition: background 0.3s linear;
+
+			&:after {
+				content: '';
+				border-style: solid;
+				border-width: 2px 2px 0 0;
+				border-color: $white $white transparent transparent;
+				width: 10px;
+				height: 10px;
+				position: absolute;
+				right: 25px;
+				top: 50%;
+				transform: translateY(-50%) rotate(135deg);
+			}
+
+			&:hover {
+				background: $primaryColor;
+			}
+		}
+	}
+
+	.content {
+		border: 1px solid $white;
+		padding: 25px 25px 0;
+		background: $white;
+		color: $lightBlack;
+	}
+}
+
+/*
+cols
+----
+*/
+.cols {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -15px;
+
+	.col {
+		padding: 0 15px;
+		flex: 0 0 33.33%;
+
+		@media only screen and (max-width: 767px) {
+			flex: 0 0 100%;
+			padding: 0 15px 15px;
+		}
+	}
+
+	.holder {
+		background: lighten($black, 15%);
+		padding: 25px 25px 5px;
+		height: 100%;
+	}
+}
+
+/*
+block
+-----
+*/
+.block {
+	padding: 80px 0;
+
+	@media only screen and (max-width: 767px) {
+		padding: 40px 0;
+	}
+
+	&.bgBlack {
+		background: $black;
+		color: $white;
+	}
+
+	&.bgGray {
+		background: darken($white, 3%);
+	}
+
+	h2 {
+    font-weight: 900;
+    line-height: 1.1;
+		text-transform: uppercase;
+		
+		@media only screen and (max-width: 767px) {
+			font-size: 26px;
+		}
+  }
+}
+
+/*
+title holder
+-----------
+*/
+.titleHolder {
+	text-align: center;
+	max-width: 640px;
+	margin: 0 auto 50px;
+
+	@media only screen and (max-width: 767px) {
+		margin: 0 auto 30px;
+	}
+}
