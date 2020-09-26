@@ -109,14 +109,14 @@ $(window).scroll(function() {
 });
 
 /*
-6. sticky nav
--------------
+6. sticky header
+----------------
 */
-var stickyNavTop = $('.header').offset().top;
+var headerPosition = $('.header').offset().top;
 
 $(window).scroll(function(){
-  var scrollTop = $(window).scrollTop();
-  if(scrollTop > stickyNavTop) {
+  var scrollValue = $(window).scrollTop();
+  if(scrollValue > headerPosition) {
     $('.header').addClass('sticky');
   } else {
     $('.header').removeClass('sticky');
