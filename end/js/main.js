@@ -154,39 +154,34 @@ $('#nav a[href^="#"]').on('click', function(event) {
 8. read more in content
 -----------------------
 */
-$(document).ready(function(){
-	var showChar = 100;
-	var moretext = "Read More";
-  var lesstext = "Read Less";
+var showCharacter = 100;
+var moretext = "Read More";
+var lesstext = "Read Less";
+
+$('.whyusBlock .cols p').each(function(){
+  var content = $(this).html();
   
-	$('.whyusBlock .cols p').each(function(){
-    var content = $(this).html();
-		if(content.length > showChar) {
-			var c = content.substr(0, showChar);
-			var h = content.substr(showChar-1);
-			var fullContent = c + ' <span class="morecontent"><span>' + h + '</span><a href="" class="morelink">' + moretext + '</a></span>'
-			$(this).html(fullContent);
-		}
-  });
-  
-	$('.morelink').click(function(){
-		if($(this).hasClass('less')){
-			$(this).removeClass('less');
-			$(this).html(moretext);
-		} else {
-			$(this).addClass('less');
-			$(this).html(lesstext);
-    }
-    
-		$(this).prev().slideToggle(200, function(){
-			if($(this).is(':visible')) {
-				$(this).css({
-					'display': 'block'
-				});
-			}
-		})
-		return false;
-	});
+  if(content.length > showCharacter) {
+    var showContent = content.substr(0, showCharacter);
+    var hideContent = content.substr(showCharacter);
+    var fullContent = showContent + ' <div class="morecontent"><div>' + hideContent + '</div><a href="" class="morelink">' + moretext + '</a></div>'
+		$(this).html(fullContent);
+  }
+});
+
+
+$('.morelink').click(function(){
+  if($(this).hasClass('less')){
+    $(this).removeClass('less');
+    $(this).html(moretext);
+  } else {
+    $(this).addClass('less');
+    $(this).html(lesstext);
+  }
+
+  $(this).prev().slideToggle('slow');
+
+  return false;
 });
 
 /*

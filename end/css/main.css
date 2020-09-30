@@ -721,7 +721,7 @@ why us
   .whyusBlock .col .icon {
     font-size: 40px;
     margin: 0 0 30px; }
-.whyusBlock .morecontent span {
+.whyusBlock .morecontent div {
   display: none; }
 .whyusBlock .morecontent a {
   text-decoration: underline;
